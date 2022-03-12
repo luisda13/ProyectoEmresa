@@ -1,0 +1,21 @@
+<div class="card" style="width: 95%;" *ngFor="let producto of todosProductos; index as i">
+    <div class="card-body">
+        <div class="parent">
+        <img src="{{producto.ThumbnailURL}}" class="card-img-top" alt="90%">
+        <div class="descricion">
+            <div class="texto">
+            <h5 class="card-text">{{producto.Name}}</h5>
+            </div>
+            <div class="precio">
+                <h5 class="card-text">{{producto.Price}}</h5>
+                <h6 class="card-text"><s>{{producto["Retail Price"]}}</s></h6>
+            </div>
+
+        </div>
+        <div class="d-grid gap-2">
+            <button class="btn btn-primary" type="button" (click)="detalle(producto.ProductID,true)" >View Details</button>
+        </div>
+        </div>
+    </div>
+  </div>
+
