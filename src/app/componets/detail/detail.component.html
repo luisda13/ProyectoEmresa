@@ -1,1 +1,35 @@
-<h1>hola detalle</h1>
+<div class="card" style="width: 95%">
+    <div class="card-body">
+        <div class="parent">
+        <div class="imagendiv" style="width: 350px; height: 350px;  background-image: url({{pictureURL}})">
+        <div *ngIf=btn1B>
+        <button style="float: left; position: relative; transform: translate(20px,300px);" >{{cadenaBtn1}}</button>
+        </div>
+        <div *ngIf=btn2B>
+        <button style="float: right; position: relative; transform: translate(-20px,300px);" >{{cadenaBtn2}}</button>
+        </div>
+        </div>
+        <div class="descricion">
+            
+        <h5 class="card-text">{{name}}</h5>
+        <h5 class="card-puntuacion">{{ratingAvg}} cantidad de estrellas </h5> 
+        <h5 class="card-descricion">{{description}}</h5>    
+           
+
+        </div>
+        <div class="d-grid gap-2">
+            <div class="precio">
+                <h5 class="card-text">{{price}} $</h5>
+                <h6 class="card-text"><s>{{retailPrice}} $</s></h6>
+            </div>
+            <h6 *ngIf=suministros class="card-text">Out of Stock</h6>
+            <button class="btn btn-primary" type="button" (click)="agregar()" >add</button>
+        </div>
+        </div>
+    </div>
+  </div>
+  <div>
+    <h5><b>Brand:</b> {{brand}}</h5>
+    <h5><b>Color:</b> {{color}}</h5>
+
+  </div>

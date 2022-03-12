@@ -33,4 +33,6 @@ import { ListaPrducComponent } from './componets/lista-prduc/lista-prduc.compone
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule { 
+  
+}
