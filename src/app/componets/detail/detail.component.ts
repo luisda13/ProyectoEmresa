@@ -1,7 +1,8 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import {ServicioPersona} from '../servic/servicio';
+
 import productos from '../../../assets/productList.json';
+import Swal from 'sweetalert2';
 @Component({
   selector: 'app-detail',
   templateUrl: './detail.component.html',
@@ -27,7 +28,7 @@ export class DetailComponent implements OnInit {
   btn1B:boolean=false;
   btn2B:boolean=false;
   suministros:boolean=true;
-  constructor(private servicio: ServicioPersona,private route: ActivatedRoute) {
+  constructor(private route: ActivatedRoute) {
     this.id=this.route.snapshot.params.id;
   }
 
@@ -68,11 +69,27 @@ export class DetailComponent implements OnInit {
       }
       console.log( "btn1 "+this.btn1B+" conte "+this.cadenaBtn1)
       console.log( "btn2 "+this.btn2B+" conte "+this.cadenaBtn2)
+      if(this.stock!=0){
+        this.suministros=false;
+      }
   }
 
   agregar(){
     if(this.stock!=0){
       this.suministros=false;
+      Swal.fire({
+        icon: 'success',
+        title: 'En hora buena',
+        text: 'se ha agregado al carrito tu producto',
+        
+      })
+    }else{
+      Swal.fire({
+        icon: 'error',
+        title: 'Cantidad de productos insuficientes',
+        text: 'lamentamos informale que ya no hay unidades de este producto',
+        
+      })
     }
     
   }
